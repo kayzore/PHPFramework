@@ -8,7 +8,7 @@ use Symfony\Component\Yaml\Yaml;
 class KayParameters
 {
     private $pathConfig = 'app/config/';
-    private $pathErrorView  = 'src/kayzore/bundle/ErrorBundle/';
+    private $pathErrorView  = 'src/kayzore/bundle/ServicesBundle/Ressources/Views/';
 
     public function __construct() {
         // PROJECT INFORMATIONS

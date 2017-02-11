@@ -16,6 +16,7 @@ class Controller
     public function __construct($nameBundle) {
         $appKernel = new AppKernel();
         $registerBundles = $appKernel->registerBundles();
+        // Instanciation des bundles
         foreach ($registerBundles as $name => $bundlePath) {
             $this->bundles[$name] = $bundlePath;
         }
