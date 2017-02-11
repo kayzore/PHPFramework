@@ -3,6 +3,7 @@
 namespace kayzore\bundle\ControllerBundle\Controller;
 
 use app\AppKernel;
+use Symfony\Component\Yaml\Yaml;
 use Twig_Environment;
 use Twig_Extension_Debug;
 use Twig_Loader_Filesystem;
@@ -23,10 +24,8 @@ class Controller
             $_SERVER['DOCUMENT_ROOT'] . RACINE_WEB . $this->bundles[$nameBundle] . 'Ressources\Views\\'
         );
         // Paramètres twig
-        $this->twig = new Twig_Environment($loader, array(
-            'cache' => false/*__DIR__ . '/tmp'*/,
-            'debug' => true,
-        ));
+        $config = Yaml::parse(file_get_contents(DIR_CONFIG . 'config.yml'));
+        $this->twig = new Twig_Environment($loader, $config['twig']);
         $this->twig->addExtension(new Twig_Extension_Debug());
     }
 }
