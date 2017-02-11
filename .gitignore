@@ -4,3 +4,4 @@ composer.lock
 app/
 web/
 .htaccess
+src/myName/
