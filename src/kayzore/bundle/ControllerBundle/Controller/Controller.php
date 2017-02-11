@@ -21,7 +21,7 @@ class Controller
         }
         // Instanciation de Twig
         $loader = new Twig_Loader_Filesystem(
-            $_SERVER['DOCUMENT_ROOT'] . RACINE_WEB . $this->bundles[$nameBundle] . 'Ressources\Views\\'
+            RACINE_WEB . $this->bundles[$nameBundle] . 'Ressources\Views\\'
         );
         // Paramètres twig
         $config = Yaml::parse(file_get_contents(DIR_CONFIG . 'config.yml'));

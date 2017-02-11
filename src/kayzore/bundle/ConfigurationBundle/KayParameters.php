@@ -12,10 +12,10 @@ class KayParameters
 
     public function __construct() {
         // PROJECT INFORMATIONS
-        define('RACINE_WEB', '/PHPFramework/');
-        define('DIR_VIEW_ERROR', $_SERVER['DOCUMENT_ROOT'] . RACINE_WEB . $this->pathErrorView);
-        define('DIR_CONFIG', $_SERVER['DOCUMENT_ROOT'] . RACINE_WEB . $this->pathConfig);
+        define('DIR_CONFIG', RACINE_WEB . $this->pathConfig);
         $config = Yaml::parse(file_get_contents(DIR_CONFIG . 'parameters.yml'));
+
+        define('DIR_VIEW_ERROR', RACINE_WEB . $this->pathErrorView);
         // DATABASE INFORMATIONS
         define('DB_HOST', $config['parameter']['db_host']);
         define('DB_NAME', $config['parameter']['db_name']);
