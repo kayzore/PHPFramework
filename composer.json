@@ -1,6 +1,6 @@
 {
     "name": "kayzore/phpframework",
-    "description": "Simple PHP framework",
+    "description": "Simple PHP frameworks",
     "type": "library",
     "keywords": ["framework"],
     "homepage": "https://github.com/kayzore/PHPFramework",
