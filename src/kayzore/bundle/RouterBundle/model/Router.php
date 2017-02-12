@@ -2,6 +2,8 @@
 
 namespace kayzore\bundle\RouterBundle\model;
 
+use kayzore\bundle\ServicesBundle\Model\ServiceException;
+
 class Router {
 
     private $url; // URL sur laquelle on souhaite se rendre
@@ -34,19 +36,19 @@ class Router {
 
     public function run(){
         if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
-            new RouterException(404, 'REQUEST_METHOD does not exist');
+            new ServiceException(404, 'REQUEST_METHOD does not exist');
         }
         foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
             if($route->match($this->url)){
                 return $route->call();
             }
         }
-        new RouterException(404, 'No matching routes');
+        new ServiceException(404, 'No matching routes');
     }
 
     public function url($name, $params = []){
         if(!isset($this->namedRoutes[$name])){
-            new RouterException(404, 'No route matches this name');
+            new ServiceException(404, 'No route matches this name');
         }
         return $this->namedRoutes[$name]->getUrl($params);
     }
